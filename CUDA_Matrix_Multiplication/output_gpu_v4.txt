@@ -1,0 +1,39 @@
+rpg-93-1:/CS5379/gpu-programming/project$ ./matrixMul_gpu_v4.exe
+Size of matrix (N) is 1024 by 1024.
+Starting optimized GPU computation with multiple blocks
+It took 90.581667 ms on avg.
+RUN OK.
+Generating '/tmp/nsys-report-19b9.qdstrm'
+[1/7] [========================100%] report3.nsys-rep
+[2/7] [========================100%] report3.sqlite
+[3/7] Executing 'nvtx_sum' stats report
+SKIPPED: /mnt/CS5379/home/msenol/CS5379/gpu-programming/project/report3.sqlite does not contain NV Tools Extension (NVTX) data.
+[4/7] Executing 'cuda_api_sum' stats report
+
+ Time (%)  Total Time (ns)  Num Calls   Avg (ns)    Med (ns)   Min (ns)  Max (ns)   StdDev (ns)           Name
+ --------  ---------------  ---------  ----------  ----------  --------  ---------  -----------  ----------------------
+     70.1        375513291          6  62585548.5  89750689.5    340743   89752559   42381723.5  cudaDeviceSynchronize
+     29.7        158821188          3  52940396.0     11307.0      9263  158800618   91677641.5  cudaMallocManaged
+      0.1           443994          3    147998.0    133383.0     91768     218843      64785.9  cudaFree
+      0.1           428251          3    142750.3     74655.0     32871     320725     155540.1  cudaMemPrefetchAsync
+      0.0           189104          5     37820.8      8329.0      4615     150542      63323.0  cudaLaunchKernel
+      0.0             1143          1      1143.0      1143.0      1143       1143          0.0  cuModuleGetLoadingMode
+
+[5/7] Executing 'cuda_gpu_kern_sum' stats report
+
+ Time (%)  Total Time (ns)  Instances   Avg (ns)    Med (ns)   Min (ns)  Max (ns)  StdDev (ns)                      Name
+ --------  ---------------  ---------  ----------  ----------  --------  --------  -----------  --------------------------------------------
+     99.9        358994628          4  89748657.0  89748993.0  89746561  89750081       1553.3  GPUmatmul(int, double *, double *, double *)
+      0.1           341538          1    341538.0    341538.0    341538    341538          0.0  init(int, double *, double *, double *)
+
+[6/7] Executing 'cuda_gpu_mem_time_sum' stats report
+
+ Time (%)  Total Time (ns)  Count  Avg (ns)  Med (ns)  Min (ns)  Max (ns)  StdDev (ns)               Operation
+ --------  ---------------  -----  --------  --------  --------  --------  -----------  ------------------------------------
+    100.0           250025     48    5208.9    2751.5      2079     20608       5354.8  [CUDA memcpy Unified Device-to-Host]
+
+[7/7] Executing 'cuda_gpu_mem_size_sum' stats report
+
+ Total (MB)  Count  Avg (MB)  Med (MB)  Min (MB)  Max (MB)  StdDev (MB)               Operation
+ ----------  -----  --------  --------  --------  --------  -----------  ------------------------------------
+      8.389     48     0.175     0.033     0.004     1.044        0.304  [CUDA memcpy Unified Device-to-Host]
